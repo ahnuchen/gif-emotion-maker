@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>制作动态表情</title>
+    <script src="//cdn.staticfile.org/gif.js/0.2.0/gif.js"></script>
+    <script src="//cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="./libgif.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<div class="container">
+    <h4>请选择图片：</h4>
+    <button type="button" accept="image/gif" id="uploadImageFileBtn" class="btn">点击上传一张动态图</button>
+    <input type="file" accept="image/gif" id="uploadImageFile" class="hide">
+    <div id="frameImages"></div>
+    <h2>自定义文字参数：</h2>
+    <form>
+        <label for="fontSize">
+            自定义文字大小
+            <input type="number" value="20" id="fontSize">像素
+        </label>
+        <br>
+        <label for="fontSize">
+            自定义文字颜色
+            <input type="color" value="#333333" id="fontColor">
+        </label>
+        <br>
+
+        <h3>设置文字内容</h3>
+        <div id="TextRenderOption" class="hide">
+            <label for="TextRenderOption1">
+                统一设置
+                <input type="radio" name="TextRenderOption" id="TextRenderOption1" checked value="1">
+            </label>
+            <label for="TextRenderOption2">
+                分别设置
+                <input type="radio" name="TextRenderOption" id="TextRenderOption2" value="2">
+            </label>
+        </div>
+        <br>
+        <div id="lineText">
+            <label>
+                第一行文字
+                <input type="text" id="firstText">
+            </label>
+            <br>
+            <label>
+                第二行文字
+                <input type="text" id="secondText">
+            </label>
+        </div>
+        <br>
+        <h3>设置文字位置</h3>
+
+        <div class="setPosition">
+            <div>第一行：</div>
+            <label for="radio1">距离左边<input id="radio1" type="text" value="10">%</label>，
+            <label for="radio2">距离上边<input id="radio2" type="text" value="10">%</label>
+        </div>
+        <br>
+
+        <div class="setPosition">
+            <div>第二行：</div>
+            <label for="radio3">距离左边<input id="radio3" type="text" value="10">%</label>，
+            <label for="radio4">距离上边<input id="radio4" type="text" value="15">%</label>
+        </div>
+        <br>
+        <button id="renderGif" type="button" class="btn hide" onclick="render()">开始制作</button>
+        <p id="wait" class="hide">正在生成,请稍等...</p>
+    </form>
+
+    <img src="" alt="" class="hide" id="gifImage">
+    <canvas class="hide" id="addTextCanvas"></canvas>
+    <p id="tip" class="hide">(长按或右键保存)</p>
+    <script src="main.js"></script>
+</div>
+</body>
+</html>
